@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\Administrator\Desktop\Sem2_1048\Source.cpp(121,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Administrator\Desktop\Sem2_1048\Source.cpp(122,6): warning C4101: 'n': unreferenced local variable
+  Sem2_1048.vcxproj -> C:\Users\Administrator\Desktop\Sem2_1048\Debug\Sem2_1048.exe

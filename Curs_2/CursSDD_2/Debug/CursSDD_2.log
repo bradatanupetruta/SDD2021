@@ -1,0 +1,3 @@
+﻿  lista_dubla.cpp
+C:\Users\Administrator\Desktop\CursSDD_2\lista_dubla.cpp(85,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  CursSDD_2.vcxproj -> C:\Users\Administrator\Desktop\CursSDD_2\Debug\CursSDD_2.exe
