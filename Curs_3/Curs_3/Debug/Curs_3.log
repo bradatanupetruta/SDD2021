@@ -1,0 +1,3 @@
+﻿  coada2stiva.cpp
+C:\Users\Administrator\source\repos\SDD2021\Curs_3\Curs_3\coada2stiva.cpp(65): warning C4715: 'get': not all control paths return a value
+  Curs_3.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Curs_3\Curs_3\Debug\Curs_3.exe

@@ -106,6 +106,14 @@ void dezalocareMatrice(float** mat, int n)
 	delete[] mat;
 }
 
+float sumaTotala(float** mat, int n)
+{
+	float suma = 0;
+	for (int i = 0; i < n; i++)
+		suma += mat[i][1] * mat[i][2];
+	return suma;
+}
+
 void main()
 {
 	int n;
@@ -130,5 +138,8 @@ void main()
 		mat[i] = new float[3];
 	citireMatrice(mat, n);
 	afisareMatrice(mat, n);
+
+	cout << "Suma totala este: " << sumaTotala(mat, n);
+
 	dezalocareMatrice(mat, n);
 }
