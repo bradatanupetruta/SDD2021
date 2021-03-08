@@ -184,7 +184,7 @@ void main()
 	/*while (pop(&varf, &val) == 0)
 		free(val.titlu);*/
 
-	/*printf("\n--------Conversie stiva vector--------\n");
+	printf("\n--------Conversie stiva vector--------\n");
 	carte *vect = (carte*)malloc(n*sizeof(carte));
 	int nr = 0;
 	conversieStivaVector(&varf, vect, &nr);
@@ -192,11 +192,11 @@ void main()
 		printf("\nCod = %d, Titlu = %s, Pret = %5.2f", vect[i].cod, vect[i].titlu, vect[i].pret);
 	for (int i = 0; i < nr; i++)
 		free(vect[i].titlu);
-	free(vect);*/
+	free(vect);
 
-	printf("\n--------Conversie stiva lista--------\n");
+	/*printf("\n--------Conversie stiva lista--------\n");
 	nodLista* cap = NULL;
 	conversieStivaListaSimpla(&varf, &cap);
 	traversareLista(cap);
-	dezalocareLista(cap);
+	dezalocareLista(cap);*/
 }
