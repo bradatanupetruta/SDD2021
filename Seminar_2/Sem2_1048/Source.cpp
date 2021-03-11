@@ -32,16 +32,20 @@ nodLs* inserare(nodLs* cap, produs p, nodLs** coada) {
 	nou->prev = nullptr;
 	if (cap == nullptr) {
 		cap = nou;
+		nou->next = cap;
+		nou->prev = cap;
 		*coada = nou;
 	}
 	else {
 		nodLs* temp = cap;
-		while (temp->next != nullptr) {
+		while (temp->next != cap) {
 			temp = temp->next;
 		}
 		temp->next = nou;
 		nou->prev = temp;
 		*coada = nou;
+		(*coada)->next = cap;
+		cap->prev = *coada;
 	}
 
 	return cap;
@@ -49,33 +53,36 @@ nodLs* inserare(nodLs* cap, produs p, nodLs** coada) {
 
 void traversareInversa(nodLs* coada) {
 	nodLs* temp = coada;
-	while (temp != nullptr) {
+	while (temp->prev != coada) {
 		cout << "cod= " << temp->inf.cod << " denumire= " << temp->inf.denumire << " pret= " << temp->inf.pret << " cant= " << temp->inf.cantitate << endl;
 
 		temp = temp->prev;
 	}
-
+	cout << "cod= " << temp->inf.cod << " denumire= " << temp->inf.denumire << " pret= " << temp->inf.pret << " cant= " << temp->inf.cantitate << endl;
 }
 
 void traversare(nodLs* cap) {
 	nodLs* temp = cap;
-	while (temp != nullptr) {
+	while (temp->next != cap) {
 		cout << "cod= " << temp->inf.cod << " denumire= " << temp->inf.denumire << " pret= " << temp->inf.pret << " cant= " << temp->inf.cantitate << endl;
 
 		temp = temp->next;
 	}
-
+	cout << "cod= " << temp->inf.cod << " denumire= " << temp->inf.denumire << " pret= " << temp->inf.pret << " cant= " << temp->inf.cantitate << endl;
 }
 
 void dezalocare(nodLs* cap) {
 	nodLs* temp = cap;
-	while (temp != nullptr) {
+	while (temp->next != cap) {
 		nodLs* temp2 = temp->next;
 		if (temp->inf.denumire != nullptr)
 			delete[] temp->inf.denumire;
 		delete temp;
 		temp = temp2;
 	}
+	if (temp->inf.denumire != nullptr)
+		delete[] temp->inf.denumire;
+	delete temp;
 }
 
 nodLs* citireDinFisier(nodLs* cap, produs p, nodLs** coada) {
@@ -103,7 +110,7 @@ nodLs* citireDinFisier(nodLs* cap, produs p, nodLs** coada) {
 void conversieLaVector(nodLs* cap, produs* produse, int* nr)
 {
 	nodLs* temp = cap;
-	while (temp != nullptr)
+	while (temp->next != cap)
 	{
 		//init pe componente
 		produse[*nr].cod = temp->inf.cod;
@@ -116,6 +123,13 @@ void conversieLaVector(nodLs* cap, produs* produse, int* nr)
 		delete temp;
 		temp = temp2;
 	}
+	produse[*nr].cod = temp->inf.cod;
+	produse[*nr].denumire = new char[strlen(temp->inf.denumire) + 1];
+	strcpy_s(produse[*nr].denumire, strlen(temp->inf.denumire) + 1, temp->inf.denumire);
+	produse[*nr].pret = temp->inf.pret;
+	produse[*nr].cantitate = temp->inf.cantitate;
+	(*nr)++;
+	delete temp;
 }
 
 void main() {

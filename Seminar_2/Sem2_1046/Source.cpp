@@ -40,16 +40,20 @@ nodls* inserare(nodls* cap, nodls** coada, produs p)
 	if (cap == NULL)
 	{
 		cap = nou;
+		nou->next = cap;
+		nou->prev = cap;
 		*coada = nou;
 	}
 	else
 	{
 		nodls* temp = cap;
-		while (temp->next != NULL)
+		while (temp->next != cap)
 			temp = temp->next;
 		temp->next = nou;
 		nou->prev = temp;
 		*coada = nou;
+		(*coada)->next = cap;
+		cap->prev = *coada;
 	}
 
 	return cap;
@@ -58,27 +62,29 @@ nodls* inserare(nodls* cap, nodls** coada, produs p)
 void traversare(nodls* cap)
 {
 	nodls* temp = cap;
-	while (temp != NULL)
+	while (temp->next != cap)
 	{
 		cout << "Cod = " << *(temp->inf.cod) << " Denumire = " << temp->inf.denumire << " Pret = " << temp->inf.pret << " Cantitate = " << temp->inf.cantitate << endl;
 		temp = temp->next;
 	}
+	cout << "Cod = " << *(temp->inf.cod) << " Denumire = " << temp->inf.denumire << " Pret = " << temp->inf.pret << " Cantitate = " << temp->inf.cantitate << endl;
 }
 
 void traversareInversa(nodls* coada)
 {
 	nodls* temp = coada;
-	while (temp != NULL)
+	while (temp->prev != coada)
 	{
 		cout << "Cod = " << *(temp->inf.cod) << " Denumire = " << temp->inf.denumire << " Pret = " << temp->inf.pret << " Cantitate = " << temp->inf.cantitate << endl;
 		temp = temp->prev;
 	}
+	cout << "Cod = " << *(temp->inf.cod) << " Denumire = " << temp->inf.denumire << " Pret = " << temp->inf.pret << " Cantitate = " << temp->inf.cantitate << endl;
 }
 
 void conversieListaVector(nodls* cap, produs* vect, int* nr)
 {
 	nodls* temp = cap;
-	while (temp != NULL)
+	while (temp->next != cap)
 	{
 		//	vect[*nr] = temp->inf;
 		vect[*nr].cod = new int[1];
@@ -92,12 +98,19 @@ void conversieListaVector(nodls* cap, produs* vect, int* nr)
 		//free(temp);
 		temp = temp->next;
 	}
+	vect[*nr].cod = new int[1];
+	*(vect[*nr].cod) = *(temp->inf.cod);
+	vect[*nr].denumire = new char[strlen(temp->inf.denumire) + 1];
+	strcpy(vect[*nr].denumire, temp->inf.denumire);
+	vect[*nr].pret = temp->inf.pret;
+	vect[*nr].cantitate = temp->inf.cantitate;
+	(*nr)++;
 }
 
 void dezalocare(nodls* cap)
 {
 	nodls* temp = cap;
-	while (temp != NULL)
+	while (temp->next != cap)
 	{
 		nodls* temp2 = temp->next;
 		delete[] temp->inf.denumire;
@@ -105,6 +118,9 @@ void dezalocare(nodls* cap)
 		delete temp;
 		temp = temp2;
 	}
+	delete[] temp->inf.denumire;
+	delete temp->inf.cod;
+	delete temp;
 }
 
 void main()

@@ -33,16 +33,20 @@ nodls* inserare(nodls* cap, nodls** coada, produs p)
 	if (cap == NULL)
 	{
 		cap = nou;
+		nou->next = cap;
+		nou->prev = cap;
 		*coada = nou;
 	}
 	else
 	{
 		nodls* temp = cap;
-		while (temp->next != NULL)
+		while (temp->next != cap)
 			temp = temp->next;
 		temp->next = nou;
 		nou->prev = temp;
 		*coada = nou;
+		(*coada)->next = cap;
+		cap->prev = *coada;
 	}
 	return cap;
 }
@@ -50,36 +54,42 @@ nodls* inserare(nodls* cap, nodls** coada, produs p)
 void traversare(nodls* cap)
 {
 	nodls* temp = cap;
-	while (temp != NULL)
+	while (temp->next != cap)
 	{
 		cout << "Cod=" << temp->inf.cod << " Denumire=" << temp->inf.denumire <<
 			" Pret=" << temp->inf.pret << " Cantitate=" << temp->inf.cantitate << endl;
 		temp = temp->next;
 	}
+	cout << "Cod=" << temp->inf.cod << " Denumire=" << temp->inf.denumire <<
+		" Pret=" << temp->inf.pret << " Cantitate=" << temp->inf.cantitate << endl;
 }
 
 void traversareInvers(nodls* coada)
 {
 	nodls* temp = coada;
-	while (temp != NULL)
+	while (temp->prev != coada)
 	{
 		cout << "Cod=" << temp->inf.cod << " Denumire=" << temp->inf.denumire <<
 			" Pret=" << temp->inf.pret << " Cantitate=" << temp->inf.cantitate << endl;
 		temp = temp->prev;
 	}
+	cout << "Cod=" << temp->inf.cod << " Denumire=" << temp->inf.denumire <<
+		" Pret=" << temp->inf.pret << " Cantitate=" << temp->inf.cantitate << endl;
 }
 
 
 void dezalocare(nodls* cap)
 {
 	nodls* temp = cap;
-	while (temp != NULL)
+	while (temp->next != cap)
 	{
 		nodls* temp2 = temp->next;
 		delete[] temp->inf.denumire;
 		delete temp;
 		temp = temp2;
 	}
+	delete[] temp->inf.denumire;
+	delete temp;
 }
 
 void main()
@@ -119,6 +129,7 @@ void main()
 	}
 	file.close();
 	traversare(cap);
+	cout << "---------------------" << endl;
 	traversareInvers(coada);
 	dezalocare(cap);
 }

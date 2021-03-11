@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\Administrator\Desktop\Sem3_1046\Source.cpp(72,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Sem3_1046.vcxproj -> C:\Users\Administrator\Desktop\Sem3_1046\Debug\Sem3_1046.exe

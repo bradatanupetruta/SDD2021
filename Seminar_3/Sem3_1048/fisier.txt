@@ -1,0 +1,4 @@
+3
+10 2 whatsapp buna
+12 1 facebook salut
+15 3 messenger hello
