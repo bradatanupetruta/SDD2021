@@ -97,6 +97,7 @@ void dezalocareLP(nodLP* cap)
 	{
 		nodLP* temp2 = temp->next;
 		dezalocareLS(temp->inf);
+		free(temp);
 		temp = temp2;
 	}
 }
@@ -136,6 +137,7 @@ void main()
 		else
 			inserareLS(&capLSimpar, s);
 
+		free(s.nume);
 	}
 	fisier.close();
 
