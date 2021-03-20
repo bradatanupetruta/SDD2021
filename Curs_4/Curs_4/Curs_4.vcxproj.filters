@@ -27,6 +27,9 @@
     <ClCompile Include="lista_liste.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="quadratic_probing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="fisier.txt">
