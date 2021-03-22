@@ -151,7 +151,9 @@
     <ClCompile Include="lista_liste.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="quadratic_probing.cpp" />
+    <ClCompile Include="quadratic_probing.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="fisier.txt" />
