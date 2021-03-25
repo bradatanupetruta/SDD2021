@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\linear.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\quadratic.cpp" />
+    <ClCompile Include="linear.cpp" />
+    <ClCompile Include="quadratic.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\Desktop\Text.txt" />
     <Text Include="fisier.txt" />
+    <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

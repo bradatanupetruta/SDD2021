@@ -18,10 +18,10 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\linear.cpp">
+    <ClCompile Include="linear.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\quadratic.cpp">
+    <ClCompile Include="quadratic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <Text Include="fisier.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="..\..\..\..\..\Desktop\Text.txt">
+    <Text Include="Text.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
