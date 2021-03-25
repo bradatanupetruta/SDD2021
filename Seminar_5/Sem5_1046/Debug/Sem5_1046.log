@@ -1,0 +1,3 @@
+﻿  quadratic_probing.cpp
+C:\Users\Administrator\source\repos\SDD2021\Seminar_5\Sem5_1046\quadratic_probing.cpp(110,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Sem5_1046.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Seminar_5\Sem5_1046\Debug\Sem5_1046.exe
