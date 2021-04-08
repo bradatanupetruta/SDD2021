@@ -1,0 +1,6 @@
+5 
+12 Gigel 230.5
+23 Matei 85.6
+14 Gabriel 965.3
+10 Ion 854.7
+11 Cristi 758.6
