@@ -1,3 +1,3 @@
 ﻿  arbore_binar1.cpp
-C:\Users\Administrator\source\repos\SDD2021\Curs_6\Curs_6\arbore_binar1.cpp(224,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Administrator\source\repos\SDD2021\Curs_6\Curs_6\arbore_binar1.cpp(252,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
   Curs_6.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Curs_6\Curs_6\Debug\Curs_6.exe

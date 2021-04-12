@@ -29,36 +29,58 @@ nodarb* creare(student s, nodarb* st, nodarb* dr)
 
 nodarb* inserare(student s, nodarb* rad)
 {
-	nodarb* aux = rad;
-	if (rad == NULL)
+	if (rad != NULL)
 	{
-		aux = creare(s, NULL, NULL);
-		return aux;
+		if (s.cod < rad->inf.cod)
+		{
+			rad->left = inserare(s, rad->left);
+			return rad;
+		}
+		else
+			if (s.cod > rad->inf.cod)
+			{
+				rad->right = inserare(s, rad->right);
+				return rad;
+			}
+			else
+				return rad;
 	}
 	else
-		while (true)
-		{
-			if (s.cod < aux->inf.cod)
-				if (aux->left != NULL)
-					aux = aux->left;
-				else
-				{
-					aux->left = creare(s, NULL, NULL);
-					return rad;
-				}
-			else
-				if (s.cod > aux->inf.cod)
-					if (aux->right != NULL)
-						aux = aux->right;
-					else
-					{
-						aux->right = creare(s, NULL, NULL);
-						return rad;
-					}
-				else
-					return rad;
-		}
+		return creare(s, NULL, NULL);
 }
+
+//nodarb* inserare(student s, nodarb* rad)
+//{
+//	nodarb* aux = rad;
+//	if (rad == NULL)
+//	{
+//		aux = creare(s, NULL, NULL);
+//		return aux;
+//	}
+//	else
+//		while (true)
+//		{
+//			if (s.cod < aux->inf.cod)
+//				if (aux->left != NULL)
+//					aux = aux->left;
+//				else
+//				{
+//					aux->left = creare(s, NULL, NULL);
+//					return rad;
+//				}
+//			else
+//				if (s.cod > aux->inf.cod)
+//					if (aux->right != NULL)
+//						aux = aux->right;
+//					else
+//					{
+//						aux->right = creare(s, NULL, NULL);
+//						return rad;
+//					}
+//				else
+//					return rad;
+//		}
+//}
 
 void preordine(nodarb* rad)
 {
@@ -130,7 +152,13 @@ int maxim(int a, int b)
 int nrNiveluri(nodarb* rad)
 {
 	if (rad != NULL)
-		return 1 + maxim(nrNiveluri(rad->left), nrNiveluri(rad->right));
+	{
+		//return 1 + maxim(nrNiveluri(rad->left), nrNiveluri(rad->right));
+
+		int st = nrNiveluri(rad->left);
+		int dr = nrNiveluri(rad->right);
+		return 1 + maxim(st, dr);
+	}
 	else
 		return 0;
 }
@@ -264,9 +292,17 @@ void main()
 	printf("\nInaltime subarbore stang este %d: ", nrNiveluri(rad->left));
 	printf("\nInaltime subarbore drept este %d: ", nrNiveluri(rad->right));
 
+	int gradEchilibru = nrNiveluri(rad->right) - nrNiveluri(rad->left);
+	if (gradEchilibru <= 1 && gradEchilibru >= -1) {
+		cout << "\nArbore echilibrat, grad echilibru: " << gradEchilibru;
+	}
+	else {
+		cout << "\nArborele nu este echilibrat, grad echilibru: " << gradEchilibru;;
+	}
+
 	//printf("\n----Vector--------------------\n");
 
-	student* vect = (student*)malloc(n*sizeof(student));
+	/*student* vect = (student*)malloc(n*sizeof(student));
 	int nr = 0;
 	conversieArboreVector(rad, vect, &nr);
 	for(int i=0;i<nr;i++)
@@ -274,9 +310,9 @@ void main()
 
 	for(int i=0;i<nr;i++)
 		free(vect[i].nume);
-	free(vect);
+	free(vect);*/
 
-	/*rad = stergeNod(rad, 9);
+	rad = stergeNod(rad, 9);
 
 	inordine(rad);
 	printf("\n--------------------\n");
@@ -286,5 +322,13 @@ void main()
 	printf("\nInaltime subarbore stang este %d: ", nrNiveluri(rad->left));
 	printf("\nInaltime subarbore drept este %d: ", nrNiveluri(rad->right));
 
-	dezalocare(rad);*/
+	gradEchilibru = nrNiveluri(rad->right) - nrNiveluri(rad->left);
+	if (gradEchilibru <= 1 && gradEchilibru >= -1) {
+		cout << "\nArbore echilibrat, grad echilibru: " << gradEchilibru;
+	}
+	else {
+		cout << "\nArborele nu este echilibrat, grad echilibru: " << gradEchilibru;;
+	}
+
+	dezalocare(rad);
 }

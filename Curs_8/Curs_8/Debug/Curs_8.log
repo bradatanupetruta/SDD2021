@@ -1,0 +1,3 @@
+﻿  arbore_rosu_negru.cpp
+C:\Users\Administrator\source\repos\SDD2021\Curs_8\Curs_8\arbore_rosu_negru.cpp(329,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Curs_8.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Curs_8\Curs_8\Debug\Curs_8.exe
