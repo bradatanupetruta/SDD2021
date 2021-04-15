@@ -163,6 +163,23 @@ int nrNiveluri(nodarb* rad)
 		return 0;
 }
 
+void conversieNoduriFrunzaVector(nodarb* rad, student* vect, int* nr)
+{
+	if (rad != NULL)
+	{
+		if (rad->left == NULL && rad->right == NULL)
+		{
+			vect[*nr].cod = rad->inf.cod;
+			vect[*nr].nume = (char*)malloc((strlen(rad->inf.nume) + 1) * sizeof(char));
+			strcpy(vect[*nr].nume, rad->inf.nume);
+			vect[*nr].medie = rad->inf.medie;
+			(*nr)++;
+		}
+		conversieNoduriFrunzaVector(rad->left, vect, nr);
+		conversieNoduriFrunzaVector(rad->right, vect, nr);
+	}
+}
+
 void conversieArboreVector(nodarb* rad, student* vect, int* nr)
 {
 	if (rad != NULL)
@@ -214,39 +231,62 @@ nodarb* stergeRad(nodarb* rad)
 nodarb* stergeNod(nodarb* rad, int cheie)
 {
 	if (rad == NULL)
-		return NULL;
-	else
-		if (rad->inf.cod == cheie)
-		{
-			rad = stergeRad(rad);
-			return rad;
-		}
+			return NULL;
 		else
-		{
-			nodarb* aux = rad;
-			while (true)
+			if (rad->inf.cod == cheie)
 			{
-				if (cheie < aux->inf.cod)
-					if (aux->left == NULL)
-						break;
-					else
-						if (aux->left->inf.cod == cheie)
-							aux->left = stergeRad(aux->left);
-						else
-							aux = aux->left;
-				else
-					if (cheie > aux->inf.cod)
-						if (aux->right == NULL)
-							break;
-						else
-							if (aux->right->inf.cod == cheie)
-								aux->right = stergeRad(aux->right);
-							else
-								aux = aux->right;
+				rad = stergeRad(rad);
+				return rad;
 			}
-			return rad;
-		}
+			else
+				if (cheie < rad->inf.cod)
+				{
+					rad->left = stergeNod(rad->left, cheie);
+					return rad;
+				}
+				else
+				{
+					rad->right = stergeNod(rad->right, cheie);
+					return rad;
+				}
 }
+
+//nodarb* stergeNod(nodarb* rad, int cheie)
+//{
+//	if (rad == NULL)
+//		return NULL;
+//	else
+//		if (rad->inf.cod == cheie)
+//		{
+//			rad = stergeRad(rad);
+//			return rad;
+//		}
+//		else
+//		{
+//			nodarb* aux = rad;
+//			while (true)
+//			{
+//				if (cheie < aux->inf.cod)
+//					if (aux->left == NULL)
+//						break;
+//					else
+//						if (aux->left->inf.cod == cheie)
+//							aux->left = stergeRad(aux->left);
+//						else
+//							aux = aux->left;
+//				else
+//					if (cheie > aux->inf.cod)
+//						if (aux->right == NULL)
+//							break;
+//						else
+//							if (aux->right->inf.cod == cheie)
+//								aux->right = stergeRad(aux->right);
+//							else
+//								aux = aux->right;
+//			}
+//			return rad;
+//		}
+//}
 
 void main()
 {
@@ -302,17 +342,18 @@ void main()
 
 	//printf("\n----Vector--------------------\n");
 
-	/*student* vect = (student*)malloc(n*sizeof(student));
+	student* vect = (student*)malloc(n*sizeof(student));
 	int nr = 0;
-	conversieArboreVector(rad, vect, &nr);
+	//conversieArboreVector(rad, vect, &nr);
+	conversieNoduriFrunzaVector(rad, vect, &nr);
 	for(int i=0;i<nr;i++)
 		printf("\nCod=%d, Nume=%s, Medie=%5.2f", vect[i].cod, vect[i].nume, vect[i].medie);
 
 	for(int i=0;i<nr;i++)
 		free(vect[i].nume);
-	free(vect);*/
+	free(vect);
 
-	rad = stergeNod(rad, 9);
+	/*rad = stergeNod(rad, 9);
 
 	inordine(rad);
 	printf("\n--------------------\n");
@@ -328,7 +369,7 @@ void main()
 	}
 	else {
 		cout << "\nArborele nu este echilibrat, grad echilibru: " << gradEchilibru;;
-	}
+	}*/
 
 	dezalocare(rad);
 }
