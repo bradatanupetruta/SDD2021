@@ -372,14 +372,14 @@ void main()
 		free(vect[i].nume);
 	free(vect);*/
 
-	//rad = stergeRad(rad);
-	///*rad  = stergeNod(rad, 5);
+	/*rad = stergeRad(rad);
+	rad  = stergeNod(rad, 5);*/
 	//calculBF(rad);
 	//inordine(rad);
 	//printf("\n------------------------\n");
 	//inordine(rad->left);
 	//printf("\n------------------------\n");
-	//inordine(rad->right);*/
+	//inordine(rad->right);
 
 
 	rad = stergeNod(rad, 9);
