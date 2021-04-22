@@ -1,0 +1,7 @@
+6
+5 Gigel 1900
+2 Dorel 1800
+7 Ionel 1950
+1 Maricica 2000
+3 Costel 1700
+4 Vergil 1700

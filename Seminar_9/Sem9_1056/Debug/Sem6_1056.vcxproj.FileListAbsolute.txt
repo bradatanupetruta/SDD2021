@@ -1,0 +1,6 @@
+C:\Users\Administrator\source\repos\SDD2021\Seminar_6\Sem6_1056\Debug\Sem6_1056.exe
+C:\Users\Administrator\source\repos\SDD2021\Seminar_6\Sem6_1056\Debug\Sem6_1056.pdb
+C:\Users\Administrator\source\repos\SDD2021\Seminar_8\Sem8_1056\Debug\Sem6_1056.exe
+C:\Users\Administrator\source\repos\SDD2021\Seminar_8\Sem8_1056\Debug\Sem6_1056.pdb
+C:\Users\Administrator\source\repos\SDD2021\Seminar_9\Sem9_1056\Debug\Sem6_1056.exe
+C:\Users\Administrator\source\repos\SDD2021\Seminar_9\Sem9_1056\Debug\Sem6_1056.pdb

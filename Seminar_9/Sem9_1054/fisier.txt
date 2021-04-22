@@ -1,0 +1,7 @@
+6
+5 Gigel 70
+2 Dorel 50
+7 Ionel 30
+1 Viorel 40
+3 Iulian 60
+4 Maricica 60

@@ -1,0 +1,7 @@
+6
+5 Marketing 8 
+2 Logistica 11
+7 HR 9
+1 IT 12
+3 Contabilitate 6
+4 Contabilitate 6

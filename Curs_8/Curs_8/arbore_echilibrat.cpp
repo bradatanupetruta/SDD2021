@@ -307,6 +307,63 @@ nodarb* reechilibrare(nodarb* rad)
 	return rad;
 }
 
+/* afisare noduri de pe un anumit nivel */
+void afisareNivel(nodarb* rad, int level)
+{
+	if (rad == NULL)
+		return;
+	if (level == 1)
+		printf("\nCod=%d, Nume=%s, Medie=%5.2f, BF=%d", rad->inf.cod, rad->inf.nume, rad->inf.medie, rad->BF);
+	else if (level > 1)
+	{
+		afisareNivel(rad->left, level - 1);
+		afisareNivel(rad->right, level - 1);
+	}
+}
+
+/* traversare arbore pe niveluri */
+void traversareNiveluri(nodarb* rad)
+{
+	int h = nrNiveluri(rad);
+	for (int i = 1; i <= h; i++)
+		afisareNivel(rad, i);
+}
+
+// functia care valideaza daca exista drum de la radacina la un anumit nod
+bool existaDrum(nodarb* rad, int* vector, int* nr, int nod)
+{
+	if (!rad)
+		return false;
+
+	//se adauga nodul curent in vector
+	vector[*nr] = rad->inf.cod;
+	(*nr)++;
+
+	//daca nodul primit ca parametru este egal cu radacina returnam true
+	if (rad->inf.cod == nod)
+		return true;
+
+	//altfel verificam daca nodul cautat se afla in subarbore stang sau drept
+	if (existaDrum(rad->left, vector, nr, nod) || existaDrum(rad->right, vector, nr, nod))
+		return true;
+
+	//daca nu se afla in subarbore stang sau drept se elimina din vector si returnam false
+	(*nr)--;
+	return false;
+}
+
+// functie care afiseaza drumul de la radacina la un anumit nod
+void afiseazaDrum(nodarb* rad, int* vector, int nr, int nod)
+{
+	if (existaDrum(rad, vector, &nr, nod))
+	{
+		for (int i = 0; i < nr; i++)
+			cout << vector[i] << "->";
+	}
+	else
+		cout << "nu exista drum" <<endl;
+}
+
 void main()
 {
 	int n;
@@ -382,7 +439,7 @@ void main()
 	//inordine(rad->right);
 
 
-	rad = stergeNod(rad, 9);
+	/*rad = stergeNod(rad, 9);
 	rad = reechilibrare(rad);
 	inordine(rad);
 	printf("\n------------------------\n");
@@ -393,7 +450,18 @@ void main()
 
 	printf("\nInaltime arbore este %d", nrNiveluri(rad));
 	printf("\nInaltime subarbore stang este %d", nrNiveluri(rad->left));
-	printf("\nInaltime subarbore drept este %d", nrNiveluri(rad->right));
+	printf("\nInaltime subarbore drept este %d", nrNiveluri(rad->right));*/
+
+	cout << endl << "Noduri de pe nivelul 3: " << endl;
+	afisareNivel(rad, 3);
+
+	cout << endl<< "Traversare pe niveluri: " << endl;
+	traversareNiveluri(rad);
+
+	cout << endl << "Drumul de la radacina la un anumit nod: " << endl;
+	int* vector = new int[n];
+	int nr = 0;
+	afiseazaDrum(rad, vector, nr, 5);
 
 	dezalocare(rad);
 }
