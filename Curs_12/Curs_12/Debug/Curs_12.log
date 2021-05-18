@@ -1,0 +1,4 @@
+﻿  Source5.cpp
+C:\Users\Administrator\source\repos\SDD2021\Curs_12\Curs_12\Source5.cpp(50,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Administrator\source\repos\SDD2021\Curs_12\Curs_12\Source5.cpp(51,37): warning C4101: 's': unreferenced local variable
+  Curs_12.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Curs_12\Curs_12\Debug\Curs_12.exe
