@@ -1,5 +1,4 @@
-﻿  Huffman.cpp
-C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\Huffman.cpp(223,70): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
-C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\Huffman.cpp(231,62): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
-C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\Huffman.cpp(239,70): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+﻿  LZW.cpp
+C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\LZW.cpp(49,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\LZW.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
   Curs_13.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\Debug\Curs_13.exe
