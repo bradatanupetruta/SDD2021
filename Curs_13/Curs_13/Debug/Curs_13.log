@@ -1,4 +1,2 @@
-﻿  LZW.cpp
-C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\LZW.cpp(49,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\LZW.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
+﻿  Source.cpp
   Curs_13.vcxproj -> C:\Users\Administrator\source\repos\SDD2021\Curs_13\Curs_13\Debug\Curs_13.exe
